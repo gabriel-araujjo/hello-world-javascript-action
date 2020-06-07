@@ -3,7 +3,7 @@ const github = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const myToken = core.getInput('myToken');
+  const myToken = core.getInput('repo-token');
   const octokit = github.getOctokit(myToken);
 
 
