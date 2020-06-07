@@ -3,6 +3,14 @@ const github = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file
+  const myToken = core.getInput('myToken');
+  const octokit = github.getOctokit(myToken);
+
+
+  octokit.repos.listReleases().then(releases => {
+    console.log(releases)
+  })
+
   const nameToGreet = core.getInput('who-to-greet');
   console.log(`Hello ${nameToGreet}!`);
   const time = (new Date()).toTimeString();
